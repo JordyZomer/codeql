@@ -94,6 +94,8 @@ private class DefaultXssSink extends XssSink {
 private class DefaultXSSSanitizer extends XssSanitizer {
   DefaultXSSSanitizer() {
     this.getType() instanceof NumericType or this.getType() instanceof BooleanType
+    or
+    this.(DataFlow::CallNode).regexpMatch("(?i)html_?escape.*")
   }
 }
 
